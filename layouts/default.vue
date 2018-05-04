@@ -1,52 +1,54 @@
-<template>
+<template>  
   <div>
-    <nuxt/>
-    <my-footer/>
+    <el-header>
+      <nav-bar />
+    </el-header>
+    <el-container>
+      <el-aside width="auto">
+        <side-bar />
+      </el-aside>
+      <el-main>
+        <nuxt class="centered-text"/>
+      </el-main>      
+    </el-container>
+    <el-footer>
+      <my-footer/>
+    </el-footer>
   </div>
 </template>
 
 <script>
 import MyFooter from '~/components/Footer.vue'
+import NavBar from '~/components/NavBar.vue'
+import SideBar from '~/components/SideBar.vue'
 
 export default {
   components: {
-    MyFooter
+    MyFooter,
+    NavBar,
+    SideBar
   }
 }
 </script>
 
 <style>
-.container
-{
+html, body {
+  padding: 0;
   margin: 0;
+  height: 100%;
   width: 100%;
-  padding: 100px 0;
+}
+.el-header {
+  background-color: #545c64;
+  line-height: 60px;
+}
+.el-aside {
+  border-right: 1px solid #E4E7ED;
+}
+.el-footer {
+  border-top: 1px solid #E4E7ED;
+}
+.centered-text {
   text-align: center;
-}
-
-.button, .button:visited
-{
-  display: inline-block;
-  color: black;
-  letter-spacing: 1px;
-  background-color: #fff;
-  border: 2px solid #000;
-  text-decoration: none;
-  text-transform: uppercase;
-  padding: 15px 45px;
-}
-
-.button:hover, .button:focus
-{
-  color: #fff;
-  background-color: #000;
-}
-
-.title
-{
-  color: #000;
-  font-weight: 300;
-  font-size: 2.5em;
-  margin: 0;
 }
 </style>
